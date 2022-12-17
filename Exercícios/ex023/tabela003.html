@@ -11,9 +11,17 @@
         }
         
         table {
-            width: 600px;
+            width: 500px;
             border-collapse: collapse;
             text-align: center;
+            position: relative;
+        }
+
+        caption {
+            font-size: 1.4em;
+            font-weight: bold;
+            padding: 10px;
+            background-color: lightgray;
         }
 
         td, th {
@@ -34,7 +42,22 @@
             color: white;
         }
 
+        thead > tr > th {
+            position: sticky;
+            top: -1px;
+            background-color: gray;
+        }
+
+        tbody > tr:nth-child(odd) /* 2n-1 */ {
+            background-color: white;
+        }
+
+        tbody > tr:nth-child(even) /* 2n */ {
+            background-color: lightgray;
+        }
+
         tfoot {
+            background-color: gray;
             color: white;
         }
     </style>
@@ -44,6 +67,7 @@
     <!-- 
         ANATOMIA PARA TABELAS GRANDES
         TABLE
+            CAPTION
             THEAD
                 TR, TD, TH
             TBODY
@@ -52,12 +76,13 @@
                 TR, TD, TH
     -->
     <table>
+        <caption>População das unidade federativas</caption>
         <thead>
             <tr>
-                <th>Posição</th>
-                <th>Unidade federativa</th>
-                <th>População</th>
-                <th>% da pop. total</th>
+                <th scope="col" style="width: 60px;">Posição</th>
+                <th scope="col">Unidade federativa</th>
+                <th scope="col">População</th>
+                <th scope="col">% da pop. total</th>
             </tr>
         </thead>
         <tbody>
@@ -226,10 +251,8 @@
         </tbody>
         <tfoot>
             <tr>
-                <td style="border: 0px;"></td>
-                <th style="background-color: gray
-                ;">Total de Habitantes</th>
-                <td class="numero" style="background-color: gray;"><strong>215.482.190</strong></td>
+                <th scope="row" colspan="2">Total de Habitantes</th>
+                <td class="numero"><strong>215.482.190</strong></td>
             </tr>
         </tfoot>
     </table>
